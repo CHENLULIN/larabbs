@@ -48,6 +48,7 @@ class ExpendituresController extends Controller
         		$data['pic'] = $result['path'];
 	        }
         }
+      
         $data['user_id'] = Auth::user()->id;
         $data['expenditure_time'] = now();
 	
