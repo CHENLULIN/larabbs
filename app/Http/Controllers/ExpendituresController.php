@@ -19,7 +19,7 @@ class ExpendituresController extends Controller
 	
 	public function index()
     {
-        $lists = Auth::user()->expenditureInfo()->all();
+        $lists = Auth::user()->expenditureInfo()->get();
         return view('expenditures.lists', compact('lists'));
     }
     
