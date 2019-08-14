@@ -34,4 +34,9 @@ Route::get('email/verify', 'Auth\VerificationController@show')->name('verificati
 Route::get('email/verify/{id}', 'Auth\VerificationController@verify')->name('verification.verify');
 Route::get('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
+//用户资源控制器
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
+
+//日常消费资源控制器
+Route::resource('expenditures', 'ExpendituresController');
+

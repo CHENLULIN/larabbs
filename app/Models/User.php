@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
+use App\Models\Expenditure;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
@@ -37,4 +38,14 @@ class User extends Authenticatable implements MustVerifyEmailContract
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+	
+	
+	/**
+	 * 关联消费信息
+	 * @return \Illuminate\Database\Eloquent\Relations\HasMany
+	 */
+    public function expenditureInfo()
+    {
+    	return $this->hasMany(Expenditure::class,'user_id');
+    }
 }
