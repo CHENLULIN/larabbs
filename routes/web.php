@@ -40,7 +40,12 @@ Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit'
 //日常消费资源控制器
 Route::resource('expenditures', 'ExpendituresController');
 
-
+// 话题资源路由
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
+//分类资源路由
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
+
+//图片上传路由
+Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
+
