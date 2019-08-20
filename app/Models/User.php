@@ -7,6 +7,7 @@ use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use App\Models\Expenditure;
+use App\Models\Reply;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
@@ -52,6 +53,11 @@ class User extends Authenticatable implements MustVerifyEmailContract
     public function topics()
     {
     	return $this->hasMany(Topic::class, 'user_id');
+    }
+    
+    public function replies()
+    {
+    	return $this->hasMany(Reply::class);
     }
 	
 	/**
